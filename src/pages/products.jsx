@@ -11,7 +11,7 @@ export default function ProductsPage() {
         <title> Resources </title>
       </Helmet>
 
-      <ProductsView />
+      <ProductsView />x
     </>
   );
 }

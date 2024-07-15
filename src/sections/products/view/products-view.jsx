@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
 import { products } from 'src/_mock/products';
+
+import Iconify from 'src/components/iconify';
 
 import ProductCard from '../product-card';
 import ProductSort from '../product-sort';
@@ -27,9 +30,16 @@ export default function ProductsView() {
 
   return (
     <Container>
+            <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+
       <Typography variant="h4" sx={{ mb: 5 }}>
         Resources
       </Typography>
+      <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
+          New Resource
+        </Button>
+      </Stack>
+
 
       <Stack
         direction="row"

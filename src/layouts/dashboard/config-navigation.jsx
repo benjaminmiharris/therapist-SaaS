@@ -8,11 +8,11 @@ const icon = (name) => (
 );
 
 const navConfig = [
-  {
-    title: 'dashboard',
-    path: '/',
-    icon: icon('ic_analytics'),
-  },
+  // {
+  //   title: 'dashboard',
+  //   path: '/',
+  //   icon: icon('ic_analytics'),
+  // },
   {
     title: 'clients',
     path: '/clients',

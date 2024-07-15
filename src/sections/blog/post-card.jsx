@@ -10,15 +10,18 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
 import { fDate } from 'src/utils/format-time';
-import { fShortenNumber } from 'src/utils/format-number';
 
-import Iconify from 'src/components/iconify';
 import SvgColor from 'src/components/svg-color';
+import { useState } from 'react';
+
 
 // ----------------------------------------------------------------------
 
 export default function PostCard({ post, index }) {
   const { cover, title, view, comment, share, author, createdAt } = post;
+
+  const [date, setDate] = useState(new Date());
+
 
   const latestPostLarge = index === 0;
 
@@ -67,53 +70,66 @@ export default function PostCard({ post, index }) {
     </Link>
   );
 
-  const renderInfo = (
-    <Stack
-      direction="row"
-      flexWrap="wrap"
-      spacing={1.5}
-      justifyContent="flex-end"
-      sx={{
-        mt: 3,
-        color: 'text.disabled',
-      }}
-    >
-      {[
-        { number: comment, icon: 'eva:message-circle-fill' },
-        { number: view, icon: 'eva:eye-fill' },
-        { number: share, icon: 'eva:share-fill' },
-      ].map((info, _index) => (
-        <Stack
-          key={_index}
-          direction="row"
-          sx={{
-            ...((latestPostLarge || latestPost) && {
-              opacity: 0.48,
-              color: 'common.white',
-            }),
-          }}
-        >
-          <Iconify width={16} icon={info.icon} sx={{ mr: 0.5 }} />
-          <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
-        </Stack>
-      ))}
-    </Stack>
-  );
+  // const renderInfo = (
+  //   <Stack
+  //     direction="row"
+  //     flexWrap="wrap"
+  //     spacing={1.5}
+  //     justifyContent="flex-end"
+  //     sx={{
+  //       mt: 3,
+  //       color: 'text.disabled',
+  //     }}
+  //   >
+  //     {[
+  //       { number: comment, icon: 'eva:message-circle-fill' },
+  //       { number: view, icon: 'eva:eye-fill' },
+  //       { number: share, icon: 'eva:share-fill' },
+  //     ].map((info, _index) => (
+  //       <Stack
+  //         key={_index}
+  //         direction="row"
+  //         sx={{
+  //           ...((latestPostLarge || latestPost) && {
+  //             opacity: 0.48,
+  //             color: 'common.white',
+  //           }),
+  //         }}
+  //       >
+  //         <Iconify width={16} icon={info.icon} sx={{ mr: 0.5 }} />
+  //         <Typography variant="caption">{fShortenNumber(info.number)}</Typography>
+  //       </Stack>
+  //     ))}
+  //   </Stack>
+  // );
 
   const renderCover = (
     <Box
-      component="img"
-      alt={title}
-      src={cover}
       sx={{
         top: 0,
         width: 1,
         height: 1,
         objectFit: 'cover',
         position: 'absolute',
+         bgcolor: '#183860'
       }}
-    />
+    >
+
+<Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '16px' }}>
+        {date.toLocaleDateString('en-US', { weekday: 'short' })}
+      </Typography>
+      <Typography variant="h6" sx={{ color: 'gray', marginBottom: '16px' }}>
+        {date.toLocaleDateString('en-US', { month: 'short' })}
+      </Typography>
+      <Typography variant="h1" sx={{ fontWeight: 'bold', marginBottom: '8px' }}>
+        {date.getDate()}
+      </Typography>
+     
+
+    </Box>
   );
+
+
 
   const renderDate = (
     <Typography
@@ -191,11 +207,10 @@ export default function PostCard({ post, index }) {
             }),
           }}
         >
-          {renderDate}
+          {/* {renderDate} */}
 
           {renderTitle}
 
-          {renderInfo}
         </Box>
       </Card>
     </Grid>

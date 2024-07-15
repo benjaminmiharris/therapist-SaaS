@@ -1,64 +1,148 @@
-import { sample } from 'lodash';
-import { faker } from '@faker-js/faker';
+import testerImg from '../../public/assets/images/products/product_23.jpg';
 
-// ----------------------------------------------------------------------
-
-const PRODUCT_NAME = [
-  'Nike Air Force 1 NDESTRUKT',
-  'Nike Space Hippie 04',
-  'Nike Air Zoom Pegasus 37 A.I.R. Chaz Bear',
-  'Nike Blazer Low 77 Vintage',
-  'Nike ZoomX SuperRep Surge',
-  'Zoom Freak 2',
-  'Nike Air Max Zephyr',
-  'Jordan Delta',
-  'Air Jordan XXXV PF',
-  'Nike Waffle Racer Crater',
-  'Kyrie 7 EP Sisterhood',
-  'Nike Air Zoom BB NXT',
-  'Nike Air Force 1 07 LX',
-  'Nike Air Force 1 Shadow SE',
-  'Nike Air Zoom Tempo NEXT%',
-  'Nike DBreak-Type',
-  'Nike Air Max Up',
-  'Nike Air Max 270 React ENG',
-  'NikeCourt Royale',
-  'Nike Air Zoom Pegasus 37 Premium',
-  'Nike Air Zoom SuperRep',
-  'NikeCourt Royale',
-  'Nike React Art3mis',
-  'Nike React Infinity Run Flyknit A.I.R. Chaz Bear',
+export const products = [
+  {
+    id: 1,
+    name: 'The Body Keeps the Score',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 2,
+    name: 'Mans Search for Meaning',
+    cover: testerImg,
+    media_type: 'video',
+  },
+  {
+    id: 3,
+    name: 'The Gifts of Imperfection',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 4,
+    name: 'Feeling Good: The New Mood Therapy',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 5,
+    name: 'Motivational Interviewing: Helping People Change',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 6,
+    name: 'Mindfulness-Based Cognitive Therapy for Depression',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 7,
+    name: 'The Dialectical Behavior Therapy Skills Workbook',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 8,
+    name: 'ACT Made Simple',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 9,
+    name: 'The Mindful Way Workbook',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 10,
+    name: 'Radical Acceptance',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 11,
+    name: 'Trauma and Recovery',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 12,
+    name: 'The Four Agreements',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 13,
+    name: 'Nonviolent Communication: A Language of Life',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 14,
+    name: 'Self-Compassion: The Proven Power of Being Kind to Yourself',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 15,
+    name: 'The Happiness Trap',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 16,
+    name: 'You Are Not Your Brain',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 17,
+    name: 'When Things Fall Apart',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 18,
+    name: 'Healing the Shame That Binds You',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 19,
+    name: 'The Power of Now',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 20,
+    name: 'Attached: The New Science of Adult Attachment and How It Can Help You Find - and Keep - Love',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 21,
+    name: 'The Anxiety and Phobia Workbook',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 22,
+    name: 'Waking the Tiger: Healing Trauma',
+    cover: '',
+    media_type: 'video',
+  },
+  {
+    id: 23,
+    name: 'Lost Connections',
+    cover: '',
+    media_type: 'pdf',
+  },
+  {
+    id: 24,
+    name: 'Permission to Feel',
+    cover: '',
+    media_type: 'video',
+  },
 ];
-const PRODUCT_COLOR = [
-  '#00AB55',
-  '#000000',
-  '#FFFFFF',
-  '#FFC0CB',
-  '#FF4842',
-  '#1890FF',
-  '#94D82D',
-  '#FFC107',
-];
-
-// ----------------------------------------------------------------------
-
-export const products = [...Array(24)].map((_, index) => {
-  const setIndex = index + 1;
-
-  return {
-    id: faker.string.uuid(),
-    cover: `/assets/images/products/product_${setIndex}.jpg`,
-    name: PRODUCT_NAME[index],
-    price: faker.number.int({ min: 4, max: 99, precision: 0.01 }),
-    priceSale: setIndex % 3 ? null : faker.number.int({ min: 19, max: 29, precision: 0.01 }),
-    colors:
-      (setIndex === 1 && PRODUCT_COLOR.slice(0, 2)) ||
-      (setIndex === 2 && PRODUCT_COLOR.slice(1, 3)) ||
-      (setIndex === 3 && PRODUCT_COLOR.slice(2, 4)) ||
-      (setIndex === 4 && PRODUCT_COLOR.slice(3, 6)) ||
-      (setIndex === 23 && PRODUCT_COLOR.slice(4, 6)) ||
-      (setIndex === 24 && PRODUCT_COLOR.slice(5, 6)) ||
-      PRODUCT_COLOR,
-    status: sample(['sale', 'new', '', '']),
-  };
-});
