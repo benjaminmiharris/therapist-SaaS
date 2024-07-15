@@ -1,5 +1,6 @@
 import SvgColor from 'src/components/svg-color';
 
+
 // ----------------------------------------------------------------------
 
 const icon = (name) => (
