@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-import { ResourcesView } from 'src/sections/products/view';
+import { ResourcesView } from 'src/sections/resources/view';
 
 // ----------------------------------------------------------------------
 
