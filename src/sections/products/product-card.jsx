@@ -41,6 +41,7 @@ export default function ShopProductCard({ product }) {
     />
   );
 
+  console.log('products', product)
 
 
   return (

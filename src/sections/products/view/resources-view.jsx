@@ -14,7 +14,7 @@ import ProductFilters from '../product-filters';
 
 // ----------------------------------------------------------------------
 
-export default function ProductsView() {
+export default function ResourcesView() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleOpenFilter = () => {
@@ -56,8 +56,6 @@ export default function ProductsView() {
           </Grid>
         ))}
       </Grid>
-
-      {/* <ProductCartWidget /> */}
     </Container>
   );
 }
