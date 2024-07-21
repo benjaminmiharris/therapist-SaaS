@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
-import CloseIcon from '@mui/icons-material/Close';
+import Typography from '@mui/material/Typography';
+
 
 const style = {
   position: 'absolute',
@@ -22,6 +25,7 @@ const style = {
   p: 4,
 };
 
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
 export default function BasicModalTest({ openModal, closeModal }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,6 +55,10 @@ export default function BasicModalTest({ openModal, closeModal }) {
           </Typography>
           <form onSubmit={handleSubmit}>
             <Stack spacing={2} sx={{ mt: 2 }}>
+            <FormControlLabel control={ <Switch {...label} defaultChecked />} label="Active" />
+
+           
+
               <TextField
                 label="First Name"
                 variant="outlined"
@@ -75,6 +83,13 @@ export default function BasicModalTest({ openModal, closeModal }) {
                 fullWidth
                 required
                 type="email"
+              />
+               <TextField
+                label="Create Password"
+                variant="outlined"
+                fullWidth
+                required
+                type="password"
               />
               <Button type="submit" variant="contained" color="primary">
                 Submit

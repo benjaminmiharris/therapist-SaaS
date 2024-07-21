@@ -1,4 +1,3 @@
-import { sample } from 'lodash';
 import { faker } from '@faker-js/faker';
 
 // ----------------------------------------------------------------------
@@ -9,6 +8,6 @@ export const users = [...Array(24)].map((_, index) => ({
   name: faker.person.fullName(),
   email: faker.internet.email(),
   isVerified: faker.datatype.boolean(),
-  status: sample(['active', 'banned']),
+  status: ['active'],
   mobile: faker.phone.number(),
 }));
